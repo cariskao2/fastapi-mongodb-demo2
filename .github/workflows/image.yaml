@@ -3,14 +3,14 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - 'master'
+      - "main"
 
 jobs:
   build-docker-image:
     runs-on: ubuntu-22.04
     env:
       DOCKER_HUB_TOKEN: ${{ secrets.DOCKER_HUB_TOKEN }}
-      DOCKER_HUB_USER: xiaopeng163
+      DOCKER_HUB_USER: caris2
 
     steps:
       - name: checkout code
