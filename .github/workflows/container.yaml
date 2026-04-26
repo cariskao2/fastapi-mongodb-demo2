@@ -1,15 +1,19 @@
+# container.yaml
 name: test docker container action
 
 on: workflow_dispatch
 
 jobs:
-	hellow_world_job:
+	hello_world_job:
 		runs-on: ubuntu-latest
 		name: A job to say hello
-		id: hello
-		uses: cariskao2/docker-container-actions@main
+		steps:
+			- name: Hello world action step
+				id: hello
+				uses: cariskao2/docker-container-actions@main
 
-		with:
-			who-to-greet: 'GitHub Docker Container Actions'
-		- name: Get the output time
-			run: echo "The time was ${{ steps.hello.outputs.time }}"
+				with:
+					who-to-greet: 'GitHub Docker Container Actions'
+			- name: Get the output time
+				run: echo "The time was ${{ steps.hello.outputs.time }}" # 這裡的hello是jobs的id
+			# 把hello的outputs的time打印出來
